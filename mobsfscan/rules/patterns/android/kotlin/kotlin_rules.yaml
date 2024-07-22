@@ -334,8 +334,8 @@
     passwords, keys etc.
   input_case: lower
   pattern: >-
-    (password\s*=\s*[\'|\"].{1,100}[\'|\"]\s{0,5})|(pass\s*=\s*[\'|\"].{1,100}[\'|\"]\s{0,5})|(username\s*=\s*[\'|\"].{1,100}[\'|\"]\s{0,5})|(secret\s*=\s*[\'|\"].{1,100}[\'|\"]\s{0,5})|(key\s*=\s*[\'|\"].{1,100}[\'|\"]\s{0,5})
-  severity: WARNING
+    (api[_-]?key|secret|password|pass|pwd|passwd|token|salt|seed|credential|auth|bearer|otp|crypt|IV|client[_-]?id|client[_-]?secret)(s?)(\s*)=(\s*)['|"](.+?)['|"]
+  severity: ERROR
   type: Regex
   metadata:
     masvs: storage-14
