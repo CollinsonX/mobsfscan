@@ -334,7 +334,7 @@
     passwords, keys etc.
   input_case: lower
   pattern: >-
-    (api[_-]?key|secret|password|pass|pwd|passwd|token|salt|seed|credential|auth|bearer|otp|crypt|IV|client[_-]?id|client[_-]?secret)(s?)(\s*)=(\s*)['|"](.+?)['|"]
+    (api[_-]?key|sdk[_-]?key|secret|password|pass|pwd|passwd|token|salt|seed|credential|auth|bearer|otp|crypt|IV|client[_-]?id|client[_-]?secret)(s?)(\s*)=(\s*)['"](?=.*[a-zA-Z])(?=.*\d)[a-zA-Z\d]*['"]
   severity: ERROR
   type: Regex
   metadata:
