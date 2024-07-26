@@ -26,7 +26,7 @@
 - id: ios_log
   message: The App logs information. Sensitive information should never be logged.
   input_case: exact
-  pattern: (print|NSLog|os_log|OSLog|os_signpost)\(
+  pattern: (^(?:(?!#if DEBUG[\s\S]*?#endif)[\s\S])*(print|NSLog|os_log|OSLog|os_signpost)\((?:(?!#if DEBUG[\s\S]*?#endif)[\s\S])*$)
   severity: INFO
   type: Regex
   metadata:
@@ -34,6 +34,8 @@
     masvs: storage-3
     owasp-mobile: m1
     reference: https://github.com/MobSF/owasp-mstg/blob/master/Document/0x06i-Testing-Code-Quality-and-Build-Settings.md#finding-debugging-code-and-verbose-error-logging-mstg-code-4
+  # exclude:
+  #   - pattern: (?<!#if DEBUG[\s\S]*)(print|NSLog|os_log|OSLog|os_signpost)\((?![\s\S]*#endif)
 - id: ios_sha1_collision
   cwe: CWE-327
   message: SHA1 is a weak hash known to have hash collisions.
@@ -67,20 +69,20 @@
     masvs: crypto-4
     owasp-mobile: m5
     reference: https://github.com/MobSF/owasp-mstg/blob/master/Document/0x04g-Testing-Cryptography.md#identifying-insecure-andor-deprecated-cryptographic-algorithms-mstg-crypto-4
-- id: ios_biometric_bool
-  message: Biometric authentication should be hardware and keychain backed, local authentication returns a boolean that can be bypassed by runtime instrumentation tools like Frida. This is not applicable if authentication data in keychain is protected with a biometric only access control.
-  input_case: exact
-  pattern:
-    - \.evaluatePolicy\(
-    - \.deviceOwnerAuthentication
-    - LAContext\(
-  severity: WARNING
-  type: RegexAnd
-  metadata:
-    cwe: cwe-303
-    masvs: auth-8
-    owasp-mobile: m1
-    reference: https://github.com/MobSF/owasp-mstg/blob/master/Document/0x06f-Testing-Local-Authentication.md#local-authentication-framework
+#- id: ios_biometric_bool
+#  message: Biometric authentication should be hardware and keychain backed, local authentication returns a boolean that can be bypassed by runtime instrumentation tools like Frida. This is not applicable if authentication data in keychain is protected with a biometric only access control.
+#  input_case: exact
+#  pattern:
+#    - \.evaluatePolicy\(
+#    - \.deviceOwnerAuthentication
+#    - LAContext\(
+#  severity: WARNING
+#  type: RegexAnd
+#  metadata:
+#    cwe: cwe-303
+#    masvs: auth-8
+#    owasp-mobile: m1
+#    reference: https://github.com/MobSF/owasp-mstg/blob/master/Document/0x06f-Testing-Local-Authentication.md#local-authentication-framework
 - id: ios_biometric_acl
   message: Weak biometric ACL flag is associated with a key stored in Keychain. With `.biometryAny/.userPresence/.touchIDAny` flag, an attacker with the ability to add a biometry to the device can authenticate as the user. Use `.biometryCurrentSet/.touchIDCurrentSet` instead.
   input_case: exact
@@ -110,7 +112,7 @@
 - id: ios_keychain_weak_accessibility_value
   message: A key stored in the Keychain is using a weak accessibility value. Use stronger ACLs like `kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly/kSecAttrAccessibleWhenUnlocked/kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly`.
   input_case: exact
-  pattern: kSecAttrAccessibleAlways|kSecAttrAccessibleAfterFirstUnlock
+  pattern: kSecAttrAccessibleAlways|kSecAttrAccessibleAfterFirstUnlock(?!ThisDeviceOnly)
   severity: WARNING
   type: Regex
   metadata:
