@@ -109,17 +109,17 @@
     masvs: auth-8
     owasp-mobile: m1
     reference: https://github.com/MobSF/owasp-mstg/blob/master/Document/0x06f-Testing-Local-Authentication.md
-- id: ios_keychain_weak_accessibility_value
-  message: A key stored in the Keychain is using a weak accessibility value. Use stronger ACLs like `kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly/kSecAttrAccessibleWhenUnlocked/kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly`.
-  input_case: exact
-  pattern: kSecAttrAccessibleAlways|kSecAttrAccessibleAfterFirstUnlock(?!ThisDeviceOnly)
-  severity: WARNING
-  type: Regex
-  metadata:
-    cwe: cwe-305
-    masvs: auth-8
-    owasp-mobile: m1
-    reference: https://github.com/MobSF/owasp-mstg/blob/master/Document/0x06f-Testing-Local-Authentication.md
+#- id: ios_keychain_weak_accessibility_value
+#  message: A key stored in the Keychain is using a weak accessibility value. Use stronger ACLs like `kSecAttrAccessibleWhenPasscodeSetThisDeviceOnly/kSecAttrAccessibleWhenUnlocked/kSecAttrAccessibleAfterFirstUnlockThisDeviceOnly`.
+#  input_case: exact
+#  pattern: kSecAttrAccessibleAlways|kSecAttrAccessibleAfterFirstUnlock(?!ThisDeviceOnly)
+#  severity: WARNING
+#  type: Regex
+#  metadata:
+#    cwe: cwe-305
+#    masvs: auth-8
+#    owasp-mobile: m1
+#    reference: https://github.com/MobSF/owasp-mstg/blob/master/Document/0x06f-Testing-Local-Authentication.md
 - id: ios_insecure_random_no_generator
   message: The App uses an insecure Random Number Generator.
   input_case: exact
