@@ -45,7 +45,7 @@
     - \.isJailBroken\(
     - RootTools\.isAccessGiven\(
     - \.contains\(\"test-keys\"\)
-  severity: INFO
+  severity: ERROR
   input_case: exact
   metadata:
     cwe: cwe-919

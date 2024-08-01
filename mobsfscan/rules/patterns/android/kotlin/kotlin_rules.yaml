@@ -58,7 +58,7 @@
   message: The App logs information. Sensitive information should never be logged.
   type: Regex
   pattern: Log\.(v|d|i|w|e|f|s)|System\.out\.print|System\.err\.print
-  severity: INFO
+  severity: WARNING
   metadata:
     input_case: exact
     cwe: cwe-532
