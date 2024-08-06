@@ -102,16 +102,16 @@
     masvs: resilience-4
     cwe: cwe-919
     reference: https://github.com/MobSF/owasp-mstg/blob/master/Document/0x06j-Testing-Resiliency-Against-Reverse-Engineering.md#ios-anti-reversing-defenses
-#- id: ios_cert_pinning
-#  message: This app does not have Certificate Pinning implemented in code.
-#  input_case: exact
-#  pattern:
-#    - PinnedCertificatesTrustEvaluator
-#    - TrustKit\.initSharedInstance
-#  severity: INFO
-#  type: RegexOr
-#  metadata:
-#    cwe: cwe-295
-#    masvs: network-4
-#    owasp-mobile: m3
-#    reference: https://github.com/MobSF/owasp-mstg/blob/master/Document/0x05g-Testing-Network-Communication.md#testing-custom-certificate-stores-and-certificate-pinning-mstg-network-4
+- id: ios_cert_pinning
+  message: This app does not have Certificate Pinning implemented in code.
+  input_case: exact
+  pattern:
+    - PinnedCertificatesTrustEvaluator
+    - TrustKit\.initSharedInstance
+  severity: INFO
+  type: RegexOr
+  metadata:
+    cwe: cwe-295
+    masvs: network-4
+    owasp-mobile: m3
+    reference: https://github.com/MobSF/owasp-mstg/blob/master/Document/0x05g-Testing-Network-Communication.md#testing-custom-certificate-stores-and-certificate-pinning-mstg-network-4
