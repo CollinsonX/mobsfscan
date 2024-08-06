@@ -17,22 +17,22 @@
     masvs: resilience-1
     reference: >-
           https://github.com/MobSF/owasp-mstg/blob/master/Document/0x05j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-root-detection-mstg-resilience-1
-- id: android_prevent_screenshot
-  message: >-
-    This app does not have capabilities to prevent against Screenshots from Recent Task
-    History/ Now On Tap etc.
-  type: RegexAndOr
-  pattern:
-    - \.FLAG_SECURE
-    - - setFlags\(
-      - addFlags\(
-  severity: INFO
-  input_case: exact
-  metadata:
-    cwe: cwe-200
-    owasp-mobile: m2
-    masvs: storage-9
-    reference: https://github.com/MobSF/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#finding-sensitive-information-in-auto-generated-screenshots-mstg-storage-9
+#- id: android_prevent_screenshot
+#  message: >-
+#    This app does not have capabilities to prevent against Screenshots from Recent Task
+#    History/ Now On Tap etc.
+#  type: RegexAndOr
+#  pattern:
+#    - \.FLAG_SECURE
+#    - - setFlags\(
+#      - addFlags\(
+#  severity: INFO
+#  input_case: exact
+#  metadata:
+#    cwe: cwe-200
+#    owasp-mobile: m2
+#    masvs: storage-9
+#    reference: https://github.com/MobSF/owasp-mstg/blob/master/Document/0x05d-Testing-Data-Storage.md#finding-sensitive-information-in-auto-generated-screenshots-mstg-storage-9
 - id: android_root_detection
   message: >-
     This app does not have root detection capabilities. Running a sensitive
