@@ -52,17 +52,17 @@
     owasp-mobile: m8
     masvs: resilience-1
     reference: https://github.com/MobSF/owasp-mstg/blob/master/Document/0x05j-Testing-Resiliency-Against-Reverse-Engineering.md#testing-root-detection-mstg-resilience-1
-- id: android_tapjacking
-  message: This app does not have capabilities to prevent tapjacking attacks.
-  type: Regex
-  pattern: setFilterTouchesWhenObscured\(true\)
-  severity: INFO
-  input_case: exact
-  metadata:
-    cwe: cwe-200
-    owasp-mobile: m1
-    masvs: platform-9
-    reference: https://github.com/MobSF/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-for-overlay-attacks-mstg-platform-9
+#- id: android_tapjacking
+#  message: This app does not have capabilities to prevent tapjacking attacks.
+#  type: Regex
+#  pattern: setFilterTouchesWhenObscured\(true\)
+#  severity: INFO
+#  input_case: exact
+#  metadata:
+#    cwe: cwe-200
+#    owasp-mobile: m1
+#    masvs: platform-9
+#    reference: https://github.com/MobSF/owasp-mstg/blob/master/Document/0x05h-Testing-Platform-Interaction.md#testing-for-overlay-attacks-mstg-platform-9
 - id: android_certificate_transparency
   message: >-
     This app does not enforce TLS Certificate Transparency which helps to 
