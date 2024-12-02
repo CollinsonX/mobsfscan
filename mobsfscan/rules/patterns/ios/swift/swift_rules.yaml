@@ -123,7 +123,7 @@
 - id: ios_insecure_random_no_generator
   message: The App uses an insecure Random Number Generator.
   input_case: exact
-  pattern: (?<!\w)(?<!brand)((Int|Bool|Float|Double)\.random\()|arc4random.{0,10}\(|SystemRandomNumberGenerator\(|(?<!\w)rand\(|(?<!\w)random\(
+  pattern: ((Int|Bool|Float|Double)\.random\()|arc4random.{0,10}\(|SystemRandomNumberGenerator\(|(?<!\w)rand\(| random\(
   severity: WARNING
   type: Regex
   metadata:
